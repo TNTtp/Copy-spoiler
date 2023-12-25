@@ -9,8 +9,18 @@
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
   <script>
-    navigator.clipboard.writeText("beans");
+    async function copyTextToClipboard(text) {
+  try {
+    await navigator.clipboard.writeText(text);
     window.close();
+    console.log('Text copied to clipboard');
+  } catch (err) {
+    console.error('Failed to copy text: ', err);
+  }
+}
+
+copyTextToClipboard('Hello codedamn!');
+    
   </script>
   
   
